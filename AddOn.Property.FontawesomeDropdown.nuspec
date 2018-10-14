@@ -10,6 +10,10 @@
     <description>Adds support to display a font awesome icon in a dojo selection editor</description>
     <copyright>Copyright © 2018</copyright>
     <tags>EPiServerModulePackage</tags>
+    <dependencies>
+      <dependency id="EPiServer.CMS.UI.Core" version="[11.1.0,12.0.0)"/>
+    </dependencies>
+    <iconUrl>https://raw.githubusercontent.com/mariajemaria/FontAwesomeIconsDropdown/master/awesome.png</iconUrl>
   </metadata>
   <files>
     <file src="bin\$configuration$\AddOn.Property.FontawesomeDropdown.dll" target="lib\net461\" />
