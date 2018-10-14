@@ -8,10 +8,10 @@ Example:
  ```csharp
 [UIHint(AwesomeUiHints.AwesomeDropdown)]
 [AwesomeDropdownPath(Path = "three-icons.xml")]
-public virtual string Font2 { get; set; }
+public virtual string ThreeIconsChooser { get; set; }
 ```
 
-Example of a file:
+Example of a file (three-icons.xml in the web root):
  ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
