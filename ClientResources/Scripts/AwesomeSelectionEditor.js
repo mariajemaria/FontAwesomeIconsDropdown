@@ -10,7 +10,7 @@
 // Resources
     "epi/i18n!epi/cms/nls/episerver.cms.widget.contentselector",
 
-    'xstyle/css!//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
+    'xstyle/css!//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
 ],
 function (
 // Dojo
@@ -24,7 +24,7 @@ function (
 // Resources
     res
 ) {
-    return declare("alloy.editors.AwesomeSelectionEditor", [SelectionEditor], {
+    return declare("addon-property-fontawesomedropdown/AwesomeSelectionEditor", [SelectionEditor], {
 
         // tags:
         //      internal
@@ -57,9 +57,9 @@ function (
                 return {
                     label: item.text,
                     value: item.value,
-                    selected: (item.value == this.value) || (!item.value && !this.value)
+                    selected: item.value === this.value || !item.value && !this.value
                 };
             }, this));
-        },
+        }
     });
 });

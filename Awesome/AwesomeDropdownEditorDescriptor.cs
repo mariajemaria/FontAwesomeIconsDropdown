@@ -1,15 +1,15 @@
 ﻿using EPiServer.Shell.ObjectEditing.EditorDescriptors;
 
-namespace MarijasPlayground.Awesome
+namespace AddOn.Property.FontawesomeDropdown.Awesome
 {
-    [EditorDescriptorRegistration(TargetType = typeof(string), UIHint = CustomUiHints.AwesomeDropdown)]
+    [EditorDescriptorRegistration(TargetType = typeof(string), UIHint = AwesomeUiHints.AwesomeDropdown)]
     public class AwesomeDropdownEditorDescriptor : EditorDescriptor
     {
         public AwesomeDropdownEditorDescriptor()
         {
-            SelectionFactoryType = typeof(AwesomeSelectionFactory);
-            ClientEditingClass = "alloy/editors/AwesomeSelectionEditor";
+            ClientEditingClass = "addon-property-fontawesomedropdown/AwesomeSelectionEditor";
             EditorConfiguration.Add("style", "width: 72px");
+            SelectionFactoryType = typeof(AwesomeSelectionFactory);
         }
     }
 }

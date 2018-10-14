@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>AddOn.Property.FontawesomeDropdown</id>
+    <version>$version$</version>
+    <title>AddOn.Property.FontawesomeDropdown</title>
+    <authors>marija.jemuovic</authors>
+    <owners>marija.jemuovic</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds support to display a font awesome icon in a dojo selection editor</description>
+    <copyright>Copyright © 2018</copyright>
+    <tags>EPiServerModulePackage</tags>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\AddOn.Property.FontawesomeDropdown.dll" target="lib\net461\" />
+    <file src="bin\$configuration$\AddOn.Property.FontawesomeDropdown.zip" target="content\modules\_protected\AddOn.Property.FontawesomeDropdown\" />
+    <file src="web.config.install.xdt" target="content" />
+    <file src="web.config.uninstall.xdt" target="content" />
+  </files>
+</package>

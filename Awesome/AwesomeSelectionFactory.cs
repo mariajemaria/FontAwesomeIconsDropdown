@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 using EPiServer.Shell.ObjectEditing;
 
-namespace MarijasPlayground.Awesome
+namespace AddOn.Property.FontawesomeDropdown.Awesome
 {
     public class AwesomeSelectionFactory : ISelectionFactory
     {
         public IEnumerable<ISelectItem> GetSelections(
             ExtendedMetadata metadata)
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Awesome\FontAwesomeIcons.xml");
-            XDocument xdoc = XDocument.Load(path);
+            var pathAttribute = metadata.Attributes.OfType<AwesomeDropdownPathAttribute>().FirstOrDefault();
 
-            foreach (var node in xdoc.Document.Descendants("string"))
+            if (pathAttribute == null || string.IsNullOrEmpty(pathAttribute.Path))
+                throw new Exception($"Missing AwesomeDropdownPathAttribute and/or its Path parameter on {metadata.DisplayName}");
+
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, pathAttribute.Path);
+            var xdoc = XDocument.Load(path);
+
+            var fonts = xdoc.Document?.Descendants("string").ToList() ?? new List<XElement>();
+            foreach (var font in fonts)
             {
-                var nameOfFontCssClass = node.Attribute("name").Value;
-                yield return new SelectItem
+                var nameOfFontCssClass = font.Attribute("name")?.Value;
+                if (nameOfFontCssClass != null && nameOfFontCssClass.Length > 3)
                 {
-                    Value = nameOfFontCssClass,
-                    Text = string.Format("<i class=\"fa {0}\"></i>&nbsp;&nbsp;{1}", nameOfFontCssClass, nameOfFontCssClass.Substring(3))
-                };
+                    yield return new SelectItem
+                    {
+                        Value = nameOfFontCssClass,
+                        Text = $"<i class=\"fa {nameOfFontCssClass}\"></i>&nbsp;&nbsp;{nameOfFontCssClass.Substring(3)}"
+                    };
+                }
             }
         }
     }
