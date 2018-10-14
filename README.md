@@ -6,9 +6,9 @@ To use it, simply use the correct UIHint and a path to your xml file within an a
 
 Example:
  ```csharp
-         [UIHint(AwesomeUiHints.AwesomeDropdown)]
-        [AwesomeDropdownPath(Path = "three-icons.xml")]
-        public virtual string Font2 { get; set; }
+[UIHint(AwesomeUiHints.AwesomeDropdown)]
+[AwesomeDropdownPath(Path = "three-icons.xml")]
+public virtual string Font2 { get; set; }
 ```
 
 Example of a file:
